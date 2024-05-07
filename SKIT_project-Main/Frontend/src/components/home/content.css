@@ -1,0 +1,18 @@
+.heading-part{
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    /* font-weight: <weight>; */
+    font-style: normal;
+    font-weight: 180;
+    font-size: medium;
+}
+
+.container-with-margin{
+    margin-top: 40px;
+}
+
+@media (max-width: 959.95px) {
+    .heading-grid {
+      order: -1;
+    }
+  }
