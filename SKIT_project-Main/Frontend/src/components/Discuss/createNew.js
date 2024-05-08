@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { TextField} from "@mui/material";
 import {Button, Alert } from "@mui/material";
 import axios from 'axios';
+import { Helmet } from "react-helmet-async";
 
 
 const CreateNew = () => {
@@ -64,6 +65,14 @@ const CreateNew = () => {
     setMsgParam({ ...msgParam, [e.target.name]: e.target.value });
   }
   return (
+    <>
+    <Helmet>
+        <title>Create Discuss | Cyber Security Awarness</title>
+        <meta
+          name="description"
+          content="We are a team of students who are enthusiastic developers. We are trying to create a platform for basic understanding of the Cyber Security"
+        />
+      </Helmet>
     <div className="container">
       <h1 className="title">New Discussion</h1>
       <TextField
@@ -100,6 +109,7 @@ const CreateNew = () => {
                 </Alert>
             )}
     </div>
+    </>
   );
 };
 

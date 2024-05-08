@@ -1,11 +1,11 @@
 // Discussion.js
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Stack, TextField} from "@mui/material";
-import { Link } from 'react-router-dom';
+import {  TextField} from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, Alert } from '@mui/material';
 import axios from 'axios';
+import { Helmet } from "react-helmet-async";
 import './discussion.css'
 const Discussion = () => {
     const [alert, setAlert] = useState({});
@@ -119,6 +119,14 @@ const Discussion = () => {
     }
 
     return (
+        <>
+        <Helmet>
+        <title>Discussion | Cyber Security Awarness</title>
+        <meta
+          name="description"
+          content="We are a team of students who are enthusiastic developers. We are trying to create a platform for basic understanding of the Cyber Security"
+        />
+      </Helmet>
         <div className='discussion-container'>
             {discussion && (
                 <div className='discussion-title'>
@@ -176,6 +184,7 @@ const Discussion = () => {
             )}
             </div>
         </div>
+        </>
     );
 };
 

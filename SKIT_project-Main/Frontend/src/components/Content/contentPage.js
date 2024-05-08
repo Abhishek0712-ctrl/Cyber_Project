@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import LinkIcon from '@mui/icons-material/Link';
 import './contentPage.css'
+import { Helmet } from "react-helmet-async";
 
 const Content = () => {
   const [research, setResearch] = useState([]);
@@ -24,6 +25,14 @@ const Content = () => {
     fetchData();
   }, []);
   return (
+    <>
+    <Helmet>
+        <title>Content | Cyber Security Awarness</title>
+        <meta
+          name="description"
+          content="We are a team of students who are enthusiastic developers. We are trying to create a platform for basic understanding of the Cyber Security"
+        />
+      </Helmet>
     <div className="contentContainer">
       <div className="content">
         <div className="content-top">
@@ -227,6 +236,7 @@ const Content = () => {
       </div>
     </div>
     </div>
+    </>
   );
 };
 export default Content;

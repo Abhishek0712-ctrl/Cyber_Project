@@ -4,6 +4,7 @@ import "./discuss.css"
 import { Link } from 'react-router-dom';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Button, Alert } from '@mui/material';
+import { Helmet } from "react-helmet-async";
 const Discuss = () => {
     const [discussions, setDiscussions] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
@@ -75,6 +76,14 @@ const Discuss = () => {
         setSearchTerm(e.target.value);
     };
     return (
+        <>
+        <Helmet>
+        <title>Discuss | Cyber Security Awarness</title>
+        <meta
+          name="description"
+          content="We are a team of students who are enthusiastic developers. We are trying to create a platform for basic understanding of the Cyber Security"
+        />
+      </Helmet>
         <div className="container">
             <h2 className="title">Discuss List</h2>
             <div className="search-bar">
@@ -111,6 +120,7 @@ const Discuss = () => {
 
             </div>
         </div>
+        </>
     );
 };
 

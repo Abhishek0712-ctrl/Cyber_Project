@@ -1,5 +1,7 @@
 import { React, useState} from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
+
 
 // MUI Components
 import { Stack, Typography, Button } from "@mui/material";
@@ -12,8 +14,6 @@ import NameIcon from "@mui/icons-material/Person";
 import MailIcon from "@mui/icons-material/Mail";
 import CallIcon from "@mui/icons-material/Call";
 import SubjectIcon from "@mui/icons-material/Subject";
-import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 // Contact Component
 const Contact = () => {
@@ -87,6 +87,14 @@ const Contact = () => {
     }
 };
   return (
+    <>
+    <Helmet>
+        <title>Contact | Cyber Security Awarness</title>
+        <meta
+          name="description"
+          content="We are a team of students who are enthusiastic developers. We are trying to create a platform for basic understanding of the Cyber Security"
+        />
+      </Helmet>
     <Stack
       sx={{
         bgcolor: "rgb(158,196,251)",
@@ -299,6 +307,7 @@ const Contact = () => {
         </Stack>
       </Stack>
     </Stack>
+    </>
   );
 };
 

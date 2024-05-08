@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Quiz.css'; // Import CSS file for styling
+import { Helmet } from "react-helmet-async";
 
 // Define the questions, options, and their corresponding correct answers
 var questions = [
@@ -131,38 +132,45 @@ function Quiz() {
     };
 
     return (
-        <div className="quiz-container">
-            <h2 className="quiz-title">Quiz</h2>
-            {questions.map((questionData, index) => (
-                <div key={index} className="question-container">
-                    <h3 className="question">{questionData.question}</h3>
-                    <ul className="options">
-                        {questionData.options.map((option, optionIndex) => (
-                            <li key={optionIndex}>
-                                <label className="option-label">
-                                    <input
-                                        type="radio"
-                                        name={`question${index}`}
-                                        value={option}
-                                        checked={selectedOptions[index] === option}
-                                        onChange={() => handleOptionSelect(index, option)}
-                                    />
-                                    {option}
-                                    <span className="checkmark"></span>
-                                </label>
-                            </li>
-                        ))}
+        <>
+            <Helmet>
+                <title>
+                    Quiz | Cyber security awarness
+                </title>
+            </Helmet>
+            <div className="quiz-container">
+                <h2 className="quiz-title">Quiz</h2>
+                {questions.map((questionData, index) => (
+                    <div key={index} className="question-container">
+                        <h3 className="question">{questionData.question}</h3>
+                        <ul className="options">
+                            {questionData.options.map((option, optionIndex) => (
+                                <li key={optionIndex}>
+                                    <label className="option-label">
+                                        <input
+                                            type="radio"
+                                            name={`question${index}`}
+                                            value={option}
+                                            checked={selectedOptions[index] === option}
+                                            onChange={() => handleOptionSelect(index, option)}
+                                        />
+                                        {option}
+                                        <span className="checkmark"></span>
+                                    </label>
+                                </li>
+                            ))}
 
-                    </ul>
-                    {selectedOptions[index] && (
-                        <span className="feedback" style={{ color: selectedOptions[index] === questionData.answer ? 'green' : 'red' }}>
-                            {selectedOptions[index] === questionData.answer ? ' ✓ Correct' : ``}
-                            {selectedOptions[index] !== questionData.answer ? ' ✘ Wrong' : ``}
-                        </span>
-                    )}
-                </div>
-            ))}
-        </div>
+                        </ul>
+                        {selectedOptions[index] && (
+                            <span className="feedback" style={{ color: selectedOptions[index] === questionData.answer ? 'green' : 'red' }}>
+                                {selectedOptions[index] === questionData.answer ? ' ✓ Correct' : ``}
+                                {selectedOptions[index] !== questionData.answer ? ' ✘ Wrong' : ``}
+                            </span>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </>
     );
 }
 

@@ -1,5 +1,5 @@
 import { React, useState, useEffect, useRef, useCallback } from "react";
-
+import './carousel.css';
 // Components
 import { Button, IconButton, Fade } from "@mui/material";
 
@@ -45,7 +45,6 @@ const Slider = () => {
   const [dir, setDir] = useState("left");
   const containerRef = useRef(null);
   const [frameWidth, setFrameWidth] = useState(window.innerWidth);
-
   useEffect(() => {
     setFrameWidth(window.innerWidth);
   }, [window.innerWidth]);
@@ -89,6 +88,7 @@ const Slider = () => {
   const slideRight = useCallback(() => {
     setImageIndex((imageIndex + 1) % totalImages);
     setDir("left");
+    
   }, [imageIndex]);
 
   useEffect(() => {
@@ -114,11 +114,7 @@ const Slider = () => {
           </IconButton>
         ))}
       </div>
-      <div className="slider__title" ref={containerRef}>
-        <TitleSlider dir="down" index={imageIndex} Ref={containerRef.current} />
-      </div>
-
-      {imageIndex === 5 ? (
+      {imageIndex === 3 ? (
         <div className="slider__btn">
           <Button variant="contained" href={slideLabel[imageIndex].link}>
             {slideLabel[imageIndex].btn}

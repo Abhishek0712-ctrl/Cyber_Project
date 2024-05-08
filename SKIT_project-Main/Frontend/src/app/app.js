@@ -17,7 +17,7 @@ import Discuss from "../components/Discuss/discuss";
 import Discussion from "../components/Discuss/discussion";
 import Content from "../components/Content/contentPage.js";
 import Footer from "../components/Footer/Footer.js";
-import passwordGenrator from "../components/passwordGenrator/passwordGenrator.js"
+import PasswordGenrator from "../components/passwordGenrator/passwordGenrator.js"
 const App = () => {
 	const [user, setUser] = useState(null);
 
@@ -46,7 +46,7 @@ const App = () => {
         <Route path = "/discuss/create-new" element={user ? <CreateNew /> : <Login/>} />
         <Route path = "/discuss/discussion/:id" element={user ? <Discussion /> : <Login />}  />
         <Route path = "/content" element = {<Content /> } />
-        <Route path = "/password-genrator" element = { <passwordGenrator/> } /> 
+        <Route path = "/password-genrator" element = {<PasswordGenrator/>} /> 
         <Route path = "/" element = {<Home />} />
         <Route path = "*" element={<NotFoundPage />} status={404} />
       </Routes>
